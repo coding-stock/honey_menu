@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deserts</title>
+    <title>Tea</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="getback" onclick="location.href='/drinks.html'">
-        <img src="/icons/back-arrow.png" alt="">
-    </button>
-  
+    <div class="loader_div">
+        <div class="loader"></div>
+    </div> 
+    <button class="getback" onclick="location.href='/drinks.html'"><img src="/icons/back-arrow.png" alt=""></button>
+    
     <main class="body">
-        <div class="loader_div">
-            <div class="loader"></div>
-        </div>
-
         <main id="main">
             <header id="header">
                 <img src="line4.png" alt="">
-                <h1>Milkshake</h1>
+                <h1>Tea</h1>
                 <img src="line4.png" alt="">
             </header>
-            <section class="break_fast"></section>
+            <section id="tea"></section>
         </main>
     </main>
 
@@ -31,26 +28,24 @@
         const loader = document.querySelector('.loader_div');
         const supa_url = 'https://ncdabrjqxlqyrhljppvt.supabase.co';
         const supa_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5jZGFicmpxeGxxeXJobGpwcHZ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk5ODk2MDAsImV4cCI6MjA3NTU2NTYwMH0.pTHNqzel1xqPwW3ZJwF7csUSks86__bxrK2uPbwlzKI';
-
         const supabaseClient = window.supabase.createClient(supa_url, supa_key);
-        const box = document.querySelector('.break_fast');
 
-        async function select() {
-            const { data: foods, error } = await supabaseClient
+        const box2 = document.querySelector('#tea');
+
+        async function selectTea() {
+            const {data: foods, error} = await supabaseClient
                 .from('menu')
                 .select('*')
-                .eq('category', 'Shake')
-                .order('created_at', { ascending: true });
+                .eq('category', 'Tea')
+                .order('created_at', {ascending: true});
 
             if (error) {
                 console.log(error.message);
-                return;
             }
 
             foods.forEach(food => {
                 const art = document.createElement('article');
                 art.classList.add('box');
-                
                 art.innerHTML = `
                     <div class="image">
                         <img src="/imgs/${food.image}" alt="" loading="lazy">
@@ -61,23 +56,20 @@
                         <b>${food.price}rwf</b>
                     </div>
                 `;
-
                 if (!food.available) {
                     art.classList.add('outofstock');
                     art.removeAttribute('onclick');
                 }
-
-                box.appendChild(art);
+                box2.appendChild(art);
             });
 
             loader.style.display = "none";
-            main.style.display = "block";
+            document.getElementById('main').style.display = "block";
             document.querySelector('.getback').style.display = 'block';
         }
 
-        select();
+        selectTea();
     </script>
-
     <script src="load.js"></script>
 </body>
 </html>

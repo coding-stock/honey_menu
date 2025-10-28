@@ -47,6 +47,24 @@ body{
     justify-content: center;
     padding: 10px;
 } */
+.getback{
+    align-self: flex-start;
+    width: 6rem;
+    height: 40px;
+    color: var(--color);
+    background-color: black;
+    font-size: 20px;
+    font-family: var(--font_inter);
+    position: absolute;
+    z-index: 1000;
+    border: none;
+    left: 1rem;
+    top: 1.7rem;
+    border-radius: 10px;
+}
+.getback img{
+    width: 40%;
+}
 nav{
     text-align: center;
 }
