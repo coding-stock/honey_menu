@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Style+Script&display=swap');
+:root{
+    --color:#f3cd8e;
+    --font_inter :"Inter", sans-serif;
+    --font_openSans: "Open Sans", sans-serif;
+    --font_style: "Style Script", cursive;
+    --font_body:"Bodoni Moda", serif;
+    --background : #f9f9f9;
+    --button:rgba(0, 0, 0, 0.819);
+}
+body{
+   margin: 0;
+   background-image: url(/resto2.jpg);
+   background-size: cover;
+   background-repeat: no-repeat;
+   backdrop-filter: blur(3px);
+   color:var(--color) ;
+}
+.logo img{
+    width: 100px;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+.getback{
+    align-self: flex-start;
+    width: 6rem;
+    height: 40px;
+    color: var(--color);
+    background-color: black;
+    font-size: 20px;
+    font-family: var(--font_inter);
+    border-radius: 5px;
+    position: sticky;
+    z-index: 1000;
+    top: 10px;
+    border: 2px solid var(--color);
+    left: 5px;
+    border-radius: 10px;
+    display: none;
+}
+.getback img{
+    width: 40%;
+}
+header img{
+    width: 70%;
+}
+header h1{
+    font-size: 35px;
+    scale: 1.5;
+    display: inline;
+}
+section{
+    display: grid;
+    grid-template-columns: 16% 16% 16% 16%;
+    padding: 5px;
+    row-gap: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* ensures consistent height */
+    width: 95%;
+    background-color: var(--button);
+    font-family: var(--font_inter);
+    border-radius: 5px;
+    animation: onload 0.5s ease-in;
+    position: relative;
+}
+.outofstock::before{
+    content: 'Sold out!';
+    font-weight: 700;
+    font-size: 20px;
+    font-family: var(--font_openSans);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.793);
+}
+@keyframes onload {
+    0%{opacity: 0; transform: translateX(-20px);}
+    100%{opacity: 1;}
+}
+.image img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+.box .text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    padding: 10px;
+}
+.box .text h1{
+    font-size: 17.5px;
+}
+.box .text p{
+    font-size: 13px;
+}
+.box .text b{
+    color: orange;
+}
+#main{
+    display: none;
+}
+.loader_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    background-color: black;
+    z-index: 1000;
+}
+.loader {
+    width: fit-content;
+    padding-bottom: 5px;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 30px;
+    overflow: hidden;
+    color: #f3cd8e;
+    text-shadow: 0 0 0 #f3cd8e,10ch 0 0 #f3cd8e;
+    background: linear-gradient(#f3cd8e 0 0) bottom left/0% 3px no-repeat;
+    animation: l14 1.5s infinite;
+  }
+  .loader:before {
+    content: "Loading...";
+  }
+  @keyframes l14 {
+      80%  {text-shadow:    0  0 0 #f3cd8e,10ch 0 0 #f3cd8e;background-size:100% 3px}
+      100% {text-shadow: -10ch 0 0 #f3cd8e,0    0 0 #f3cd8e}
+  }
+  @media (max-width:1300px) {
+     section{
+        grid-template-columns: 20% 20% 20% 20%;
+     }
+  }
+  @media (max-width:700px) {
+    section{
+         grid-template-columns: 51% 51%;
+    }
+    header img{
+    width: 100%;
+    }
+    header h1{
+        font-size: 25px;
+    }
+  }
+  .panin{
+    object-position:  bottom ;
+  }

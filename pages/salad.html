@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salads</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="loader_div">
+        <div class="loader"></div>
+    </div>
+    <main class="body">
+       <button class="getback" onclick="location.href='/food.html'"><img src="/icons/back-arrow.png" alt=""></button>
+    
+    <main id="main">
+    <header id="header">
+      
+        <img src="line4.png" alt="">
+        <h1>Salads</h1>
+        <img src="line4.png" alt="">
+    </header>
+    <section class="break_fast">
+      
+    </section>
+</main>
+</main>
+<script>
+         const loader = document.querySelector('.loader_div');
+    
+    const supa_url = 'https://ncdabrjqxlqyrhljppvt.supabase.co';
+    const supa_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5jZGFicmpxeGxxeXJobGpwcHZ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk5ODk2MDAsImV4cCI6MjA3NTU2NTYwMH0.pTHNqzel1xqPwW3ZJwF7csUSks86__bxrK2uPbwlzKI';
+    const supabaseClient = window.supabase.createClient(supa_url , supa_key);
+    
+const box = document.querySelector('.break_fast');
+   
+//
+async function select() {
+   const {data: foods , error} = await supabaseClient
+   .from('menu')
+   .select('*')
+   .eq('category' , 'Salad')
+
+   if(error){
+    console.log(error.message);
+   }
+  
+   foods.forEach( food =>{
+      const data = {
+  name: food.name,
+  price: food.price,
+  image: `/imgs/${food.image}`
+};
+
+       art = document.createElement('article');
+     
+       art.classList.add('box')
+          
+       art.innerHTML = `
+           
+            <div class="image">
+                <img src="/imgs/${food.image}"  alt="" loading="lazy">
+            </div>
+            <div class="text">
+                <h1>${food.name}</h1>
+                <p>${food.description}</p>
+                <b>${food.price}rwf</b>
+            </div>
+            `
+             if(!food.available)
+{
+    art.classList.add('outofstock')
+    art.removeAttribute('onclick')
+}
+        box.appendChild(art)
+
+    })
+    
+  loader.style.display="none";
+    main.style.display = "block";
+    document.querySelector('.getback').style.display = 'block'
+}
+select()
+</script>
+<script src="load.js"></script>
+</body>
+</html>

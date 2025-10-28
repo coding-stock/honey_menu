@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Style+Script&display=swap');
+:root{
+    --font_inter :"Inter", sans-serif;
+    --font_openSans: "Open Sans", sans-serif;
+    --font_style: "Style Script", cursive;
+    --background : #efe8e0;
+    --orange:#f3cd8e;
+}
+body{
+    color: var(--orange);
+    position: relative;
+    z-index: 0;
+    margin: 0;
+    background-color: black;
+}
+.background-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('honeyday.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(3px);
+    z-index: -1;
+}
+/* main{
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    margin-bottom: 2rem;
+} */
+.logo img{
+    width: 100px;
+}
+/* section div{
+    display: grid;
+    grid-template-columns: 48% 48%;
+    grid-template-rows: 20% 20% 20% 20% 20% 20% 20%;
+    gap: 20px;
+    row-gap: 20px;
+    justify-content: center;
+} */
+/* section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+} */
+nav{
+    text-align: center;
+}
+nav img{
+    width: 60%;
+}
+nav p{
+    font-family: var(--font_openSans);
+    text-decoration: underline;
+    font-size: 25px;
+}
+ /* button{
+    font-family: var(--font_inter);
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.76);
+    color: var(--orange);
+    border: 1px solid var(--orange);
+    position: relative;
+    box-shadow: 7px 4px  2px  rgba(0, 0, 0, 0.381);
+    position: relative;
+    animation: load 0.5s ease-in;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 10px;
+    max-height: 80px;
+} */
+@keyframes load {
+    0%{opacity: 0;
+    scale: 1.1;}
+    100%{opacity: 1;}
+}
+/* button img{
+    width: 20%;
+} */
+button p{
+    text-overflow: ellipsis;
+    justify-self:flex-start;
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: fit-content;
+    padding-bottom: 5px;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 30px;
+    overflow: hidden;
+    color: #f3cd8e;
+    text-shadow: 0 0 0 #f3cd8e,10ch 0 0 #f3cd8e;
+    background: linear-gradient(#f3cd8e 0 0) bottom left/0% 3px no-repeat;
+    animation: l14 1.5s infinite;
+  }
+  .loader:before {
+    content: "Loading...";
+  }
+  @keyframes l14 {
+      80%  {text-shadow:    0  0 0 #f3cd8e,10ch 0 0 #f3cd8e;background-size:100% 3px}
+      100% {text-shadow: -10ch 0 0 #f3cd8e,0    0 0 #f3cd8e}
+  }
+#loader2{ 
+    height: 100vh;
+    background-color: black;
+    z-index: 10;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#loader2 nav{
+    text-align: left;
+}
+#loader2 nav img{
+    width: 20%;
+}
+.text_loader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+.text_loader p{
+    font-size: 18px;
+}
+.text_loader h1{
+    font-size: 25px;
+}
+ @media (max-width:700px) {
+    nav img{
+    width: 100%;
+} 
+}
+main{
+    background-color: rgba(0, 0, 0, 0.291);
+    height: 100%;
+}
+.container{
+   width: 100%;
+   display: grid;
+   gap: 20px;
+   grid-template-columns: auto;
+}
+.card{
+    width: 90%;
+    padding: 10px;
+    justify-self: center;
+    background-color: rgba(35, 35, 35, 0.714);
+    border-radius: 20px;
+    
+}
+.title{
+    font-family: var(--font_openSans);
+    white-space: nowrap;
+    font-size: 20px;
+}
+.sub{
+    color: rgb(208, 201, 201);
+    font-family: var(--font_inter);
+    font-style: italic;
+    font-size: 14px;
+    margin-bottom: 2rem;
+}
+.card img{
+    width: 30px;
+    height: 30px;
+}
+.card_text{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: -20px;
+}
+.card_button{
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+}
+.card_button button{
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.76);
+    color: var(--orange);
+    border: 1px solid var(--orange);
+    padding: 6px;
+}
+.card div button{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Style+Script&display=swap');
+:root{
+    --font_inter :"Inter", sans-serif;
+    --font_openSans: "Open Sans", sans-serif;
+    --font_style: "Style Script", cursive;
+    --background : #efe8e0;
+    --orange:#f3cd8e;
+}
+body{
+    color: var(--orange);
+    position: relative;
+    z-index: 0;
+    margin: 0;
+    background-image: url(honeyday.jpg);
+    background-size: cover;
+    font-family: var(--font_inter);
+}
+.overlay{
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0.5;
+    position: absolute;
+    z-index: -1;
+}
+header{
+   display: flex;
+   flex-direction: column;
+   align-items: center; 
+   justify-content: center;
+   height: 20vh;
+}
+.line{
+    width: 70%;
+}
+.title{
+      font-size: clamp(0.5rem, 2vw + 1rem, 2rem);
+}
+main{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 30vh;
+}
+main button{
+    width: 45%;
+    height: 50px;
+    background-color:rgba(0, 0, 0, 0.57);
+    border: none;
+    color: var(--orange);
+    font-family: var(--font_openSans);
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 2px solid var(--orange);
+}
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <header>
+        <div class="logo"></div>
+        <img class="line" src="pages/line4.png" alt=""> 
+        <h1 class="title"> Honey restaurant Menu</h1>
+    </header>
+    <main>
+        <button onclick="moveFood()">Foods</button>
+        <button>Drinks</button>
+    </main>
+</body>
+<script>
+    function moveFood(){
+        window.location.href = "food.html"
+    }</script>
+</html>
